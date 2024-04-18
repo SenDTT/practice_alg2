@@ -1,6 +1,30 @@
 package org.example;
 
 public class Main {
+    // 7.
+    public static boolean isReferenceArray(int[] a)
+    {
+        if (a.length == 0) return false;
+
+        int[] result = new int[a.length];
+
+        for (int num: a) {
+            if (num >= 0 && num < a.length) {
+                result[num]++;
+            } else {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (result[i] != a[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     // 6
     public static int findThePointOfEquilibrium(int[] a)
     {
@@ -168,13 +192,19 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // 8.
+        System.out.println(isReferenceArray(new int[]{1, 2, 1, 0})); // true
+        System.out.println(isReferenceArray(new int[]{1, 2, 2, 0})); // false
+        System.out.println(isReferenceArray(new int[]{1, 2, 1}));    // false
+        System.out.println(isReferenceArray(new int[]{0, 0, 0, 0})); // false
+
         // 7.
-        System.out.println(findThePointOfEquilibrium(new int[]{1, 8, 3, 7, 10, 2}));    // Output: 3
+        /*System.out.println(findThePointOfEquilibrium(new int[]{1, 8, 3, 7, 10, 2}));    // Output: 3
         System.out.println(findThePointOfEquilibrium(new int[]{1, 5, 3, 1, 1, 1, 1, 1, 1})); // Output: 2
         System.out.println(findThePointOfEquilibrium(new int[]{2, 1, 1, 1, 2, 1, 7})); // Output: 5
         System.out.println(findThePointOfEquilibrium(new int[]{1, 2, 3}));             // Output: -1
         System.out.println(findThePointOfEquilibrium(new int[]{3, 4, 5, 10}));         // Output: -1
-        System.out.println(findThePointOfEquilibrium(new int[]{1, 2, 10, 3, 4}));      // Output: -1
+        System.out.println(findThePointOfEquilibrium(new int[]{1, 2, 10, 3, 4}));      // Output: -1*/
 
         // 6.
         /*int[] first1 = {1, 8, 3, 2};
